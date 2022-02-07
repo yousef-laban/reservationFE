@@ -1,0 +1,9 @@
+// Auth actions
+export const SET_USER = "SET_USER";
+export const FETCH_USERS = "FETCH_USERS";
+
+// Res. actions
+export const FETCH_RESERVATIONS = "FETCH_RESERVATIONS";
+export const CREATE_RESERVATION = "CREATE_RESERVATION";
+export const ACCEPT_RESERVATION = "ACCEPT_RESERVATION";
+export const REJECT_RESERVATION = "REJECT_RESERVATION";

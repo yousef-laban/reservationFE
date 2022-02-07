@@ -1,14 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter } from "react-router-dom";
+
+//
+import { checkForToken } from "./store/action/authActions";
+import { fetchUsers } from "./store/action/authActions";
+import { fetchReservations } from "./store/action/reservationActions";
+
+// Redux
+import { Provider } from "react-redux";
+import store from "./store/index";
+
+store.dispatch(checkForToken());
+store.dispatch(fetchUsers());
+store.dispatch(fetchReservations());
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
